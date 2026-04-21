@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{a48ad4cb-c47d-4519-a36e-1ef1effc9317}">
+		<property name="assetPath">
+			<value>Ambient/Amb_Tavern/Amb_Fire.flac</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>115.43166666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{74cfa884-3bb6-417e-9c1a-04c724b664e5}</destination>
+		</relationship>
+	</object>
+</objects>

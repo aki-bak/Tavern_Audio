@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{d84ab611-3278-4c4a-a7b2-36637f8894ac}">
+		<property name="assetPath">
+			<value>Ambient/Amb_Tavern/Amb_Tavern_Voices_Noise.flac</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>99.014729166666669</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{74cfa884-3bb6-417e-9c1a-04c724b664e5}</destination>
+		</relationship>
+	</object>
+</objects>
