@@ -276,7 +276,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61074858}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275381884}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -2611,7 +2611,7 @@ MonoBehaviour:
   playerCamera: {fileID: 237163390}
   walkSpeed: 4
   runSpeed: 9
-  jumpPower: 6
+  jumpPower: 7
   gravity: 20
   lookSpeed: 3
   lookXLimit: 45
@@ -2701,6 +2701,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  movementThreshold: 0.01
   isGrounded: 1
   isJumping: 0
 --- !u!1 &688602384
@@ -3497,7 +3498,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929094802}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -3806,7 +3807,7 @@ Transform:
   m_GameObject: {fileID: 1105025127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: -0, z: 1.3}
+  m_LocalPosition: {x: -0.9, y: 8.8, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3841,8 +3842,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 1.13
-  OverrideMaxDistance: 3.5
+  OverrideMinDistance: 1.3365173
+  OverrideMaxDistance: 3.1932983
 --- !u!1 &1110397076
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,6 +21,10 @@ public class Footsteps : MonoBehaviour
     private float lastFootstepTime = 0f;
     private float distToGround;
 
+    //poprzednia pozycja ruchu ig
+    private Vector3 lastPosition;
+    [SerializeField] private float movementThreshold = 0.01f;
+
     [SerializeField]
     private bool isGrounded = true;
     [SerializeField]
@@ -29,18 +33,33 @@ public class Footsteps : MonoBehaviour
     void Start()
     {
         distToGround = GetComponent<Collider>().bounds.extents.y;
-        
+        lastPosition = transform.position; //
         // Usunięto: Inicjalizację słownika.
     }
 
+
     void Update()
     {
-        // Sprawdza, czy gracz skacze, używając spacji.
-        if (Input.GetKeyDown(KeyCode.Space))
+        float distanceMoved = Vector3.Distance(transform.position, lastPosition);
+
+        bool isActuallyMoving = distanceMoved > (movementThreshold * Time.deltaTime);
+
+        if (isGrounded && isActuallyMoving)
         {
-            PlayJump();
+            HandleFootsteps();
         }
+
+        lastPosition = transform.position; //
     }
+    //void Update()
+    //{
+    //    // Sprawdza, czy gracz skacze, używając spacji.
+
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        PlayJump();
+    //    }
+    //}
 
     void FixedUpdate()
     {
@@ -60,7 +79,7 @@ public class Footsteps : MonoBehaviour
         if (isMoving && IsGrounded())
         {
             // Ustawia interwał na podstawie tego, czy gracz biegnie.
-            float footstepInterval = isRunning ? 0.25f : 0.5f;
+            float footstepInterval = isRunning ? 0.15f : 0.45f;
 
             if (Time.time - lastFootstepTime > footstepInterval)
             {
@@ -162,9 +181,9 @@ public class Footsteps : MonoBehaviour
         if (surfaceParameter != null)
         {
             soundInstance = RuntimeManager.CreateInstance(eventRef);
-            soundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject.transform));
+            soundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject.transform)); //!zawsze uzywamy uwu
             // Ustawia parametr FMOD na podstawie ustalonej wartości.
-            soundInstance.setParameterByNameWithLabel("Footsteps_surface", surfaceParameter); 
+            soundInstance.setParameterByNameWithLabel("Footsteps_Switcher", surfaceParameter);  //Footsteps_Switcher
             soundInstance.start();
             soundInstance.release();
         }
