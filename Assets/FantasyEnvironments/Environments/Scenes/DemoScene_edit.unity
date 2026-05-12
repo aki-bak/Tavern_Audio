@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275381884}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -1256,8 +1256,8 @@ MonoBehaviour:
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 12.8
-  OverrideMaxDistance: 22.46
+  OverrideMinDistance: 11.275726
+  OverrideMaxDistance: 16.379425
 --- !u!135 &275381887
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2497,6 +2497,7 @@ GameObject:
   - component: {fileID: 613997990}
   - component: {fileID: 613997989}
   - component: {fileID: 613997994}
+  - component: {fileID: 613997995}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2704,6 +2705,26 @@ MonoBehaviour:
   movementThreshold: 0.01
   isGrounded: 1
   isJumping: 0
+--- !u!114 &613997995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613997984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d95e26b5cbbe94f93658dcf4aa33cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapshotActivated: 0
+  outsideSnapshot:
+    Guid:
+      Data1: 865475487
+      Data2: 1324297358
+      Data3: -2113825403
+      Data4: -920782490
+    Path: snapshot:/Outside
 --- !u!1 &688602384
 GameObject:
   m_ObjectHideFlags: 0
@@ -3498,7 +3519,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929094802}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 

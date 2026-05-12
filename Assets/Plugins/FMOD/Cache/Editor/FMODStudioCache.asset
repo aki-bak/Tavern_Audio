@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639123956896708480
+  lastModified: 639142093693600541
   FileSizes:
   - Name: Desktop
-    Value: 7115072
+    Value: 7116448
   Exists: 1
 --- !u!114 &-3115257568736691282
 MonoBehaviour:
@@ -101,6 +101,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-436586282846992192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Outside
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Outside
+  Guid:
+    Data1: 865475487
+    Data2: 1324297358
+    Data3: -2113825403
+    Data4: -920782490
+  Banks:
+  - {fileID: -8745296388388290339}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,13 +150,14 @@ MonoBehaviour:
   - {fileID: 2968726781423597188}
   - {fileID: -3115257568736691282}
   - {fileID: 3636486940115611335}
+  - {fileID: -436586282846992192}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8745296388388290339}
   StringsBanks:
   - {fileID: 3786084566425259742}
   cacheVersion: 131859
-  cacheTime: 639123956896723577
+  cacheTime: 639142093693610532
   SerializableEventsDict:
   - key: event:/Amb_Tavern
     index: 0
@@ -143,6 +171,8 @@ MonoBehaviour:
     index: 4
   - key: event:/Footsteps
     index: 5
+  - key: snapshot:/Outside
+    index: 6
 --- !u!114 &2968726781423597188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,10 +243,10 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639123956896723577
+  lastModified: 639142093693610532
   FileSizes:
   - Name: Desktop
-    Value: 1052
+    Value: 1176
   Exists: 1
 --- !u!114 &4309039425188710809
 MonoBehaviour:
