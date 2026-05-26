@@ -35,7 +35,7 @@ public class Doors : MonoBehaviour, IInteractable
             doorsOpened = !doorsOpened;
             StartCoroutine(RotateDoors(doorsOpened ? -65 : 65));
             PlaySound();
-            RoomsSnap();
+            //RoomsSnap();
         }
     }
 

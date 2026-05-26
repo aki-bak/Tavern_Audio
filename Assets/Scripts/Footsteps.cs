@@ -38,30 +38,34 @@ public class Footsteps : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        float distanceMoved = Vector3.Distance(transform.position, lastPosition);
-
-        bool isActuallyMoving = distanceMoved > (movementThreshold * Time.deltaTime);
-
-        if (isGrounded && isActuallyMoving)
-        {
-            HandleFootsteps();
-        }
-
-        lastPosition = transform.position; //
-    }
     //void Update()
     //{
-    //    // Sprawdza, czy gracz skacze, używając spacji.
+    //    float distanceMoved = Vector3.Distance(transform.position, lastPosition);
+
+    //    bool isActuallyMoving = distanceMoved > (movementThreshold * Time.deltaTime);
+
+    //    if (isGrounded && isActuallyMoving)
+    //    {
+    //        HandleFootsteps();
+    //    }
 
     //    if (Input.GetKeyDown(KeyCode.Space))
     //    {
     //        PlayJump();
     //    }
+    //    lastPosition = transform.position; //
     //}
+void Update()
+{
+    // Sprawdza, czy gracz skacze, używając spacji.
 
-    void FixedUpdate()
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        PlayJump();
+    }
+}
+
+void FixedUpdate()
     {
         HandleFootsteps();
     }
