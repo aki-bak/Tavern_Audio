@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639154221324990489
+  lastModified: 639167640563843036
   FileSizes:
   - Name: Desktop
-    Value: 7217120
+    Value: 7217600
   Exists: 1
 --- !u!114 &-5434465202145144302
 MonoBehaviour:
@@ -159,7 +159,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 3786084566425259742}
   cacheVersion: 131859
-  cacheTime: 639154221325000543
+  cacheTime: 639167640563863659
   SerializableEventsDict:
   - key: event:/Amb_Tavern
     index: 0
@@ -277,10 +277,10 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639154221325000543
+  lastModified: 639167640563863659
   FileSizes:
   - Name: Desktop
-    Value: 1466
+    Value: 1592
   Exists: 1
 --- !u!114 &4309039425188710809
 MonoBehaviour:
@@ -359,7 +359,8 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: 9101931686800788176}
   MinDistance: 1
   MaxDistance: 20
   Length: 695
@@ -389,4 +390,30 @@ MonoBehaviour:
   - Stone
   - Wood
   - Stairs
+  Exists: 1
+--- !u!114 &9101931686800788176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Door/Doors
+  m_EditorClassIdentifier: 
+  Name: Doors
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3948366837
+    data2: 3926538734
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Open
+  - Close
   Exists: 1
