@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639167640563843036
+  lastModified: 639167807509889474
   FileSizes:
   - Name: Desktop
-    Value: 7217600
+    Value: 7260224
   Exists: 1
 --- !u!114 &-5434465202145144302
 MonoBehaviour:
@@ -73,7 +73,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 92062
+  Length: 92138
+--- !u!114 &-1700408960990287218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Inside_Room
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Inside_Room
+  Guid:
+    Data1: -74862867
+    Data2: 1315984541
+    Data3: -2007629170
+    Data4: 1494450528
+  Banks:
+  - {fileID: -8745296388388290339}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-1407477855599269073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,13 +180,14 @@ MonoBehaviour:
   - {fileID: -5434465202145144302}
   - {fileID: 1722829264768304709}
   - {fileID: 7428649496956943120}
+  - {fileID: -1700408960990287218}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8745296388388290339}
   StringsBanks:
   - {fileID: 3786084566425259742}
   cacheVersion: 131859
-  cacheTime: 639167640563863659
+  cacheTime: 639167807509909626
   SerializableEventsDict:
   - key: event:/Amb_Tavern
     index: 0
@@ -179,6 +207,8 @@ MonoBehaviour:
     index: 7
   - key: event:/Door
     index: 8
+  - key: snapshot:/Inside_Room
+    index: 9
 --- !u!114 &1722829264768304709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,10 +307,10 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639167640563863659
+  lastModified: 639167807509909626
   FileSizes:
   - Name: Desktop
-    Value: 1592
+    Value: 1646
   Exists: 1
 --- !u!114 &4309039425188710809
 MonoBehaviour:
