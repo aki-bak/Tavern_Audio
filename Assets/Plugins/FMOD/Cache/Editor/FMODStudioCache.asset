@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639167807509889474
+  lastModified: 639168255010319712
   FileSizes:
   - Name: Desktop
-    Value: 7260224
+    Value: 7305408
   Exists: 1
 --- !u!114 &-5434465202145144302
 MonoBehaviour:
@@ -187,7 +187,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 3786084566425259742}
   cacheVersion: 131859
-  cacheTime: 639167807509909626
+  cacheTime: 639168255010339665
   SerializableEventsDict:
   - key: event:/Amb_Tavern
     index: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639167807509909626
+  lastModified: 639168255010339665
   FileSizes:
   - Name: Desktop
     Value: 1646
@@ -327,7 +327,7 @@ MonoBehaviour:
   Name: Footsteps_Switcher
   StudioPath: 
   Min: 0
-  Max: 2
+  Max: 3
   Default: 0
   ID:
     data1: 1758637144
@@ -338,6 +338,7 @@ MonoBehaviour:
   - Stone
   - Wood
   - Stairs
+  - Chandelier
   Exists: 1
 --- !u!114 &4969116226407733024
 MonoBehaviour:
@@ -393,7 +394,7 @@ MonoBehaviour:
   - {fileID: 9101931686800788176}
   MinDistance: 1
   MaxDistance: 20
-  Length: 695
+  Length: 1212
 --- !u!114 &7600586985482232903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +410,7 @@ MonoBehaviour:
   Name: Footsteps_Switcher
   StudioPath: 
   Min: 0
-  Max: 2
+  Max: 3
   Default: 0
   ID:
     data1: 1758637144
@@ -420,6 +421,7 @@ MonoBehaviour:
   - Stone
   - Wood
   - Stairs
+  - Chandelier
   Exists: 1
 --- !u!114 &9101931686800788176
 MonoBehaviour:

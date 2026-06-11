@@ -707,6 +707,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tavern
       objectReference: {fileID: 0}
+    - target: {fileID: 1688124427241254, guid: cb181bc6c302bca40929333077286a04, type: 3}
+      propertyPath: m_Name
+      value: Chandelier
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688124427241254, guid: cb181bc6c302bca40929333077286a04, type: 3}
+      propertyPath: m_TagString
+      value: Chandelier
+      objectReference: {fileID: 0}
     - target: {fileID: 4369231821530882, guid: cb181bc6c302bca40929333077286a04, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9713624
@@ -797,6 +805,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65154798166882392, guid: cb181bc6c302bca40929333077286a04, type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199547501513172830, guid: cb181bc6c302bca40929333077286a04, type: 3}
+      propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

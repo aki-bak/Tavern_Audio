@@ -179,6 +179,10 @@ void FixedUpdate()
             case "Stairs":
                 surfaceParameter = "Stairs";
                 break;
+
+            case "Chandelier":
+                surfaceParameter = "Chandelier";
+                break;
         }
 
         // Jeśli znaleziono pasujący parametr, odtwórz dźwięk.
