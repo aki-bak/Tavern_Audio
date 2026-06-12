@@ -11,18 +11,16 @@ public class FPSController : MonoBehaviour
     public float jumpPower = 7f;
     public float gravity = 10f;
 
-
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
-
 
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
 
     public bool canMove = true;
 
-
     CharacterController characterController;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -32,6 +30,20 @@ public class FPSController : MonoBehaviour
 
     void Update()
     {
+        // Sprawdzamy, czy gracz trzyma lewy Alt
+        bool isAltHeld = Input.GetKey(KeyCode.LeftAlt);
+
+        // Zarz¹dzanie stanem kursora w zale¿noœci od klawisza Alt
+        if (isAltHeld)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 
         #region Handles Movement
         Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -43,7 +55,6 @@ public class FPSController : MonoBehaviour
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-
         #endregion
 
         #region Handles Jumping
@@ -60,20 +71,19 @@ public class FPSController : MonoBehaviour
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
-
         #endregion
 
         #region Handles Rotation
         characterController.Move(moveDirection * Time.deltaTime);
 
-        if (canMove)
+        // Obracamy kamer¹ tylko wtedy, gdy canMove jest na true ORAZ nie trzymamy Altu
+        if (canMove && !isAltHeld)
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
-
         #endregion
     }
-}  
+}

@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639168255010319712
+  lastModified: 639168604029569068
   FileSizes:
   - Name: Desktop
-    Value: 7305408
+    Value: 5436320
   Exists: 1
 --- !u!114 &-5434465202145144302
 MonoBehaviour:
@@ -181,13 +181,14 @@ MonoBehaviour:
   - {fileID: 1722829264768304709}
   - {fileID: 7428649496956943120}
   - {fileID: -1700408960990287218}
+  - {fileID: 1845901855051488092}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8745296388388290339}
   StringsBanks:
   - {fileID: 3786084566425259742}
   cacheVersion: 131859
-  cacheTime: 639168255010339665
+  cacheTime: 639168604029594177
   SerializableEventsDict:
   - key: event:/Amb_Tavern
     index: 0
@@ -209,6 +210,8 @@ MonoBehaviour:
     index: 8
   - key: snapshot:/Inside_Room
     index: 9
+  - key: event:/Animals
+    index: 10
 --- !u!114 &1722829264768304709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +240,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 766
+--- !u!114 &1845901855051488092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Animals
+  m_EditorClassIdentifier: 
+  Path: event:/Animals
+  Guid:
+    Data1: 674305264
+    Data2: 1263472706
+    Data3: -1915631432
+    Data4: -342579410
+  Banks:
+  - {fileID: -8745296388388290339}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2968726781423597188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,10 +337,10 @@ MonoBehaviour:
   Path: Tawerna_Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639168255010339665
+  lastModified: 639168604029594177
   FileSizes:
   - Name: Desktop
-    Value: 1646
+    Value: 1728
   Exists: 1
 --- !u!114 &4309039425188710809
 MonoBehaviour:

@@ -6,66 +6,40 @@ using FMODUnity;
 /// </summary>
 public class Footsteps : MonoBehaviour
 {
-    // FMOD - Instancje zdarzeń.
-    private FMOD.Studio.EventInstance footstepsSoundInstance;
-    private FMOD.Studio.EventInstance jumpSoundInstance;
-    private FMOD.Studio.EventInstance landSoundInstance;
-
     // Publiczne referencje do zdarzeń FMOD.
     public EventReference footstepsEvent;
     public EventReference jumpEvent;
     public EventReference landEvent;
 
-    // Usunięto: private Dictionary<string, string> surfaceTags;
-
     private float lastFootstepTime = 0f;
     private float distToGround;
 
-    //poprzednia pozycja ruchu ig
-    private Vector3 lastPosition;
-    [SerializeField] private float movementThreshold = 0.01f;
-
-    [SerializeField]
-    private bool isGrounded = true;
-    [SerializeField]
-    private bool isJumping = false;
+    [SerializeField] private bool isGrounded = true;
+    [SerializeField] private bool isJumping = false;
 
     void Start()
     {
-        distToGround = GetComponent<Collider>().bounds.extents.y;
-        lastPosition = transform.position; //
-        // Usunięto: Inicjalizację słownika.
+        // Pobieramy wysokość collidera
+        if (GetComponent<Collider>() != null)
+        {
+            distToGround = GetComponent<Collider>().bounds.extents.y;
+        }
+        else
+        {
+            distToGround = 1.0f; // Domyślna wartość, jeśli brak collidera
+        }
     }
 
-
-    //void Update()
-    //{
-    //    float distanceMoved = Vector3.Distance(transform.position, lastPosition);
-
-    //    bool isActuallyMoving = distanceMoved > (movementThreshold * Time.deltaTime);
-
-    //    if (isGrounded && isActuallyMoving)
-    //    {
-    //        HandleFootsteps();
-    //    }
-
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        PlayJump();
-    //    }
-    //    lastPosition = transform.position; //
-    //}
-void Update()
-{
-    // Sprawdza, czy gracz skacze, używając spacji.
-
-    if (Input.GetKeyDown(KeyCode.Space))
+    void Update()
     {
-        PlayJump();
+        // Sprawdza, czy gracz skacze, używając spacji.
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayJump();
+        }
     }
-}
 
-void FixedUpdate()
+    void FixedUpdate()
     {
         HandleFootsteps();
     }
@@ -83,7 +57,7 @@ void FixedUpdate()
         if (isMoving && IsGrounded())
         {
             // Ustawia interwał na podstawie tego, czy gracz biegnie.
-            float footstepInterval = isRunning ? 0.15f : 0.45f;
+            float footstepInterval = isRunning ? 0.25f : 0.45f;
 
             if (Time.time - lastFootstepTime > footstepInterval)
             {
@@ -102,7 +76,7 @@ void FixedUpdate()
         if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround + 0.5f))
         {
             string surfaceTag = hit.collider.tag;
-            PlaySurfaceSound(footstepsSoundInstance, footstepsEvent, surfaceTag);
+            PlaySurfaceSound(footstepsEvent, surfaceTag);
         }
     }
 
@@ -117,7 +91,7 @@ void FixedUpdate()
             if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround + 0.5f))
             {
                 string surfaceTag = hit.collider.tag;
-                PlaySurfaceSound(jumpSoundInstance, jumpEvent, surfaceTag);
+                PlaySurfaceSound(jumpEvent, surfaceTag);
             }
             isGrounded = false;
             isJumping = true;
@@ -144,33 +118,31 @@ void FixedUpdate()
         if (Physics.Raycast(transform.position, Vector3.down, out hit, distToGround + 0.5f))
         {
             string surfaceTag = hit.collider.tag;
-            PlaySurfaceSound(landSoundInstance, landEvent, surfaceTag);
+            PlaySurfaceSound(landEvent, surfaceTag);
         }
         isGrounded = true;
         isJumping = false;
     }
 
     /// <summary>
-    /// Ogólna metoda do odtwarzania dźwięku na podstawie tagu powierzchni.
-    /// ZASTĘPUJE SŁOWNIK instrukcją SWITCH.
+    /// Ogólna metoda do odtwarzania dźwięku na podstawie tagu powierzchni jako One-Shot.
     /// </summary>
-    /// <param name="soundInstance">Instancja dźwięku FMOD.</param>
-    /// <param name="eventRef">Referencja do zdarzenia FMOD.</param>
-    /// <param name="surfaceTag">Tag powierzchni, na której znajduje się gracz.</param>
-    private void PlaySurfaceSound(FMOD.Studio.EventInstance soundInstance, EventReference eventRef, string surfaceTag)
+    private void PlaySurfaceSound(EventReference eventRef, string surfaceTag)
     {
-        // Zmienna przechowująca parametr FMOD. Domyślnie ustawiona na null/pusty string.
-        string surfaceParameter = null; 
+        // Sprawdzenie, czy referencja do eventu w ogóle istnieje w inspektorze
+        if (eventRef.IsNull) return;
+
+        string surfaceParameter = null;
 
         // Instrukcja SWITCH do mapowania Tagu na Parametr FMOD.
         switch (surfaceTag)
         {
             case "Stone":
             case "Inside_stone":
-            case "Outside": // "Outside" również używa parametru "Stone"
+            case "Outside":
                 surfaceParameter = "Stone";
                 break;
-            
+
             case "Wood":
             case "Inside_wood":
                 surfaceParameter = "Wood";
@@ -185,15 +157,17 @@ void FixedUpdate()
                 break;
         }
 
-        // Jeśli znaleziono pasujący parametr, odtwórz dźwięk.
+        // Jeśli znaleziono pasujący parametr, odtwórz dźwięk w bezpieczny sposób
         if (surfaceParameter != null)
         {
-            soundInstance = RuntimeManager.CreateInstance(eventRef);
-            soundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject.transform)); //!zawsze uzywamy uwu
-            // Ustawia parametr FMOD na podstawie ustalonej wartości.
-            soundInstance.setParameterByNameWithLabel("Footsteps_Switcher", surfaceParameter);  //Footsteps_Switcher
-            soundInstance.start();
-            soundInstance.release();
+            // Tworzymy lokalną, tymczasową instancję dźwięku
+            FMOD.Studio.EventInstance instance = RuntimeManager.CreateInstance(eventRef);
+
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject.transform));
+            instance.setParameterByNameWithLabel("Footsteps_Switcher", surfaceParameter);
+
+            instance.start();
+            instance.release(); // Nakazuje FMOD zniszczenie instancji OD RAZU po zakończeniu odtwarzania pliku wave
         }
     }
 
@@ -203,5 +177,5 @@ void FixedUpdate()
     bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.5f);
-    }  
+    }
 }
